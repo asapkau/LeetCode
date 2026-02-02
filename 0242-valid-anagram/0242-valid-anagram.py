@@ -5,11 +5,15 @@ class Solution:
 
         if len(s) != len(t):
             return False
-        for i in s:
-            sHashMap[i] = sHashMap.get(i,0) + 1
-        for i in t:
-            tHashMap[i] = tHashMap.get(i,0) + 1
 
+        for i in range(len(s)):
+            sHashMap[s[i]] = sHashMap.get(s[i], 0) + 1
+            tHashMap[t[i]] = tHashMap.get(t[i], 0) + 1
+        
         if sHashMap == tHashMap:
             return True
+
+        print(sHashMap)
+        print(tHashMap)
+
         return False
