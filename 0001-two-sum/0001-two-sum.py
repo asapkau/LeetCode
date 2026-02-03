@@ -7,7 +7,7 @@ class Solution:
             diff = target - n
 
             if diff in hashMap:
-                return (i, hashMap[diff])
+                return [i, hashMap[diff]]
             hashMap[n] = i
             
 
