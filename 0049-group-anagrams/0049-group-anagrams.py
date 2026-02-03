@@ -2,12 +2,18 @@ class Solution:
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
         hashMap = {}
 
-        for w in strs:
-            key = "".join(sorted(w))
+        for i in strs:
+            fingerPrint = [0] * 26
 
-            if key not in hashMap:
-                hashMap[key] = []
-            hashMap[key].append(w)
-
-        return list(hashMap.values())
+            for char in i:
+                index = ord(char) - ord('a')
+                fingerPrint[index] += 1
+            key = tuple(fingerPrint)
+            if key in hashMap:
+                hashMap[key].append(i)
+            else:
+                hashMap[key] = [i]
         
+        return list(hashMap.values())
+
+                
