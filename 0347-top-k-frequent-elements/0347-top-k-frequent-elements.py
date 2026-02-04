@@ -10,7 +10,7 @@ class Solution:
 
 
         result = []
-        for i in sortedFreq:
+        for i in sortedFreq[:k]:
             result.append(i[0])
 
-        return result[:k]
+        return result
