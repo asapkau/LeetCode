@@ -1,12 +1,16 @@
 class Solution:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
         
-        Map = {}
+        freq = {}
 
         for i in nums:
-            Map[i] = Map.get(i, 0) + 1
+            freq[i] = freq.get(i, 0) + 1
 
-        top_k = sorted(Map, key=Map.get, reverse=True)[:k]
-        return top_k
+        sortedFreq = sorted(freq.items(), key = lambda x:x[1], reverse = True)
 
-        
+
+        result = []
+        for i in sortedFreq:
+            result.append(i[0])
+
+        return result[:k]
